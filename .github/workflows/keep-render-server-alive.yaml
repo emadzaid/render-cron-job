@@ -1,0 +1,12 @@
+name: Keep Render Server Awake
+
+on:
+  schedule:
+    - cron: "*/14 * * * *" # Every 14 minutes
+
+jobs:
+  keepAlive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Dummy Request
+        run: curl -X GET https://shinrinshop.onrender.com/
